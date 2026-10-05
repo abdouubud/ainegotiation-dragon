@@ -301,13 +301,6 @@ h2{color:var(--navy);}
   display:grid;grid-template-columns:minmax(0,1.5fr) auto minmax(0,1fr);
   align-items:center;gap:22px 32px;
 }
-.about-bottom{
-  grid-column:1 / -1;margin:0;padding-top:22px;
-  border-top:1px solid rgba(205,212,234,.22);
-  font-size:var(--fs-text);line-height:1.6;color:#fff;
-}
-.about-bottom a{color:var(--amber);font-weight:700;text-decoration:none;}
-.about-bottom a:hover{text-decoration:underline;}
 .about-text p{margin:0;font-size:var(--fs-text);line-height:1.75;color:#fff;}
 .about-stats{
   display:flex;flex-direction:column;gap:12px;
@@ -611,7 +604,6 @@ h2{color:var(--navy);}
         </div>
       </div>
       <a href="https://www.wenego.fr/" target="_blank" rel="noopener" class="btn btn-amber about-cta" data-i18n="visit-link">Visit wenego.fr →</a>
-      <p class="about-bottom" data-i18n="about-bottom">Let's go deeper into your results in a free 30 min conversation and build your AI &amp; negotiation roadmap. Contact us at <a href="mailto:contact@wenego.fr">contact@wenego.fr</a></p>
     </div>
   </div>
 </section>
@@ -684,8 +676,7 @@ const translations = { en:{}, fr:{
   'stat1-label': 'En négociation',
   'stat2-label': 'Négociateurs formés',
   'stat3-label': 'Ateliers animés',
-  'visit-link': 'Visiter wenego.fr →',
-  'about-bottom': 'Approfondissons vos résultats lors d\'un échange gratuit de 30 min et construisons votre feuille de route IA &amp; négociation. Contactez-nous à <a href="mailto:contact@wenego.fr">contact@wenego.fr</a>'
+  'visit-link': 'Visiter wenego.fr →'
 }};
 
 document.querySelectorAll('[data-i18n]').forEach(el=>{
