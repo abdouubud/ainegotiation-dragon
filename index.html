@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WeNego I-Assisted Negotiation</title>
+<title>WeNego — AI-Assisted Negotiation</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Archivo+Black&family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -97,18 +97,24 @@ section{padding:40px 0;}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.is-visible{opacity:1;transform:translateY(0);}
 
-/* Nav — logo left, tagline centered, language switch right */
+/* Nav — logo + tagline left, page title centered, language switch right */
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--card-border);}
 .nav-inner{
   max-width:var(--max);margin:0 auto;padding:12px 32px;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;
 }
-.nav-logo{justify-self:start;display:flex;align-items:center;text-decoration:none;}
+.nav-brand{justify-self:start;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0;}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
 .nav-logo img{height:34px;width:auto;}
 .nav-tagline{
+  margin:0;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.02em;
+  color:var(--ink-soft);white-space:nowrap;line-height:1.2;
+}
+.nav-title{
   justify-self:center;margin:0;
-  font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;
-  color:var(--navy);white-space:nowrap;text-align:center;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--navy);white-space:nowrap;text-align:center;
 }
 .lang-switch{justify-self:end;display:flex;gap:4px;background:var(--tint);border-radius:100px;padding:4px;}
 .lang-btn{
@@ -120,7 +126,12 @@ section{padding:40px 0;}
 @media (max-width:640px){
   .nav-inner{padding:10px 12px;gap:10px;}
   .nav-logo img{height:26px;}
-  .nav-tagline{font-size:.7rem;white-space:normal;line-height:1.25;}
+  .nav-inner{grid-template-columns:1fr auto;grid-template-areas:"brand lang" "title title";row-gap:6px;}
+  .nav-brand{grid-area:brand;}
+  .lang-switch{grid-area:lang;}
+  .nav-tagline{font-size:.66rem;}
+  .nav-title{grid-area:title;font-size:.72rem;white-space:normal;line-height:1.25;letter-spacing:.03em;
+    padding-top:6px;border-top:1px solid var(--card-border);width:100%;}
   .lang-btn{padding:5px 10px;}
 }
 
@@ -329,10 +340,13 @@ h2{color:var(--navy);}
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="https://www.wenego.fr/" class="nav-logo" aria-label="WeNego">
-      <img src="assets/logo-wenego.png" alt="WeNego">
-    </a>
-    <p class="nav-tagline">Empowering people &amp; organisations</p>
+    <div class="nav-brand">
+      <a href="https://www.wenego.fr/" class="nav-logo" aria-label="WeNego">
+        <img src="assets/logo-wenego.png" alt="WeNego">
+      </a>
+      <p class="nav-tagline">Empowering people &amp; organisations</p>
+    </div>
+    <p class="nav-title" data-i18n="nav-title">AI &amp; Negotiation Assessment</p>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
@@ -620,6 +634,7 @@ const translations = { en:{}, fr:{
   'hero-h1': 'Vos nEgociateurs<br>laissent de <span class="hl-orange">l\'argent</span><br>sur la table.',
   'hero-sub': '<span class="hl-gold">L\'IA </span>peut vous <br>aider à le <span class="hl-gold">rEcupErer.</span>',
   'hero-note': 'Et parce que l’IA offre des possibilités infinies, nous avons choisi <br>des graphismes sympas.',
+  'nav-title': 'Diagnostic IA &amp; Négociation',
   'btn-diagnostic': 'Votre diagnostic IA',
   'btn-discovery': 'Réserver un appel de découverte',
   'h2-issues': '1. Les problEmes que rencontrent vraiment les nEgociateurs',
